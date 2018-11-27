@@ -26,8 +26,6 @@ interface IStateView {
 
     var onRetry:(()->Unit)?
 
-    fun <T, DATA : IListBean<T>> getState(bean: IStateBean<T, DATA>?): Int
-    fun <T, DATA : IListBean<T>> setData(bean: IStateBean<T, DATA>?)
 }
 
 //false表示一个整型是非标记性质的类型，不能通过|和&来连接

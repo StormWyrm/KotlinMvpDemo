@@ -90,24 +90,6 @@ class StateView(context: Context, attrs: AttributeSet? = null) : FrameLayout(con
     }
 
 
-    override fun <T, DATA : IListBean<T>> getState(bean: IStateBean<T, DATA>?): Int {
-        return if (bean?.isOk() == true) {
-            if (bean.result?.list == null || bean.result!!.list.isEmpty()) STATE_EMPTY else STATE_SUCCESS
-        } else {
-            STATE_ERROR
-        }
-    }
-
-    override fun <T, DATA : IListBean<T>> setData(bean: IStateBean<T, DATA>?) {
-        when (getState(bean)) {
-            STATE_SUCCESS -> showSuccess()
-            STATE_EMPTY -> showEmpty()
-            STATE_ERROR -> showError()
-            STATE_LOADING -> showLoading()
-        }
-    }
-
-
     private fun hideAll() {
         if (bindView == null) {
             bindView = findViewById(bindViewId)
